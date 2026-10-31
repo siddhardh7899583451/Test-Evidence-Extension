@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Test Evidence</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Test Evidence</h1>
+    <span id="recordCount" class="badge">0</span>
+  </header>
+
+  <section class="page-meta" id="pageMeta">
+    <p id="pageTitle" class="meta-line">Page: —</p>
+    <p id="pageUrl" class="meta-line muted">URL: —</p>
+  </section>
+
+  <form id="evidenceForm" autocomplete="off">
+    <label for="testName">Test Name <span class="req">*</span></label>
+    <input type="text" id="testName" placeholder="e.g. Login with valid credentials" required />
+
+    <label for="expected">Expected Result</label>
+    <textarea id="expected" rows="2" placeholder="What should happen"></textarea>
+
+    <label for="actual">Actual Result</label>
+    <textarea id="actual" rows="2" placeholder="What actually happened"></textarea>
+
+    <div class="row">
+      <div class="col">
+        <label for="status">Status</label>
+        <select id="status">
+          <option value="PASS">PASS</option>
+          <option value="FAIL">FAIL</option>
+          <option value="BLOCKED">BLOCKED</option>
+          <option value="SKIP">SKIP</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="tags">Tags</label>
+        <input type="text" id="tags" placeholder="smoke, login, ui" />
+      </div>
+    </div>
+
+    <label for="notes">Notes</label>
+    <textarea id="notes" rows="2" placeholder="Optional notes / defect link"></textarea>
+
+    <div class="actions">
+      <button type="button" id="recordButton" class="btn primary">Record Evidence</button>
+      <button type="button" id="updateButton" class="btn primary" hidden>Update</button>
+      <button type="button" id="cancelButton" class="btn secondary" hidden>Cancel</button>
+    </div>
+  </form>
+
+  <p id="message" class="message" role="status"></p>
+
+  <div class="toolbar">
+    <button type="button" id="exportJsonBtn" class="btn small">Export JSON</button>
+    <button type="button" id="exportHtmlBtn" class="btn small">Export Report</button>
+    <button type="button" id="clearAllBtn" class="btn small danger">Clear All</button>
+  </div>
+
+  <div class="filter-bar">
+    <input type="text" id="filterInput" placeholder="Filter by name, tag, status…" />
+    <select id="filterStatus">
+      <option value="">All statuses</option>
+      <option value="PASS">PASS</option>
+      <option value="FAIL">FAIL</option>
+      <option value="BLOCKED">BLOCKED</option>
+      <option value="SKIP">SKIP</option>
+    </select>
+  </div>
+
+  <h2 class="section-title">History</h2>
+  <div id="evidenceHistory" class="history"></div>
+
+  <footer class="footer">
+    <small>Alt+Shift+E · Alt+Shift+S (quick)</small>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "0bb9bf7c-aedb-4dfb-b772-8548a2e9a5cb",
+    "test_name": "Login Test",
+    "status": "PASS",
+    "expected": "User should be logged in",
+    "actual": "User logged in successfully",
+    "tags": [
+      "smoke",
+      "auth"
+    ],
+    "notes": "",
+    "page_title": "Example Login",
+    "page_url": "https://example.com/login",
+    "recorded_at": "2026-10-31T11:36:45.647182+00:00"
+  }
+]
